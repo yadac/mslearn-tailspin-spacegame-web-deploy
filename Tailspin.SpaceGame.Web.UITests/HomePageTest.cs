@@ -10,7 +10,7 @@ using System.Collections;
 namespace UITests
 {
     [TestFixture("Chrome")]
-    [TestFixture("Firefox")]
+    // [TestFixture("Firefox")]
     [TestFixture("Edge")]
     public class HomePageTest
     {
@@ -60,6 +60,7 @@ namespace UITests
                 // The site name is stored in the SITE_URL environment variable to make 
                 // the tests more flexible.
                 string url = Environment.GetEnvironmentVariable("SITE_URL");
+                Console.WriteLine("url = {0}", url);
                 driver.Navigate().GoToUrl(url + "/");
 
                 // Wait for the page to be completely loaded.
@@ -100,6 +101,7 @@ namespace UITests
             // This happens when the underlying browser is not installed.
             if (driver == null)
             {
+                Console.WriteLine("driver == null");
                 Assert.Ignore();
                 return;
             }
